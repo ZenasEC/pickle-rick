@@ -1,0 +1,35 @@
+/* Full-window canvas, no scrollbars, flat cartoon-sky background. */
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 40%, #9fe0c8 0%, #4f9c8a 55%, #22433f 100%);
+  font-family: system-ui, sans-serif;
+}
+
+.scene {
+  position: fixed;
+  inset: 0;
+}
+
+.fallback {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  margin: 0;
+  color: #fff;
+}
+
+/* Visible to screen readers only. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
