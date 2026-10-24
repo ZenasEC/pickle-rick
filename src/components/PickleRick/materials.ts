@@ -34,7 +34,32 @@ export const materials = {
   brow: toon('#bde9ec'),
   // Double-sided: the mouth is rebuilt every frame, so don't depend on triangle winding.
   mouth: new THREE.MeshBasicMaterial({ color: '#2a070d', side: THREE.DoubleSide }),
+  // Arms and legs: a flat, darker green than the body so they read as separate parts.
+  limb: toon('#5a8a2a'),
   teeth: toon('#f4efd2', soft),
   tongue: toon('#e2566f', soft),
   shadow: new THREE.MeshBasicMaterial({ color: '#000000', transparent: true, opacity: 0.25, depthWrite: false }),
+}
+
+// Laboratory palette. Same cartoon rules as the character: flat toon bands, no textures.
+// Basic (unlit) materials are for things that glow: flask liquid, bubbles, the lamp bulb.
+export const labMaterials = {
+  floor: toon('#3a5f55'),
+  mat: toon('#2c4a43'),
+  wall: toon('#7fb3a0'),
+  baseboard: toon('#22332e'),
+  wood: toon('#8a5a33'),
+  woodDark: toon('#6e4525'),
+  metal: toon('#9aa7ad'),
+  glass: new THREE.MeshToonMaterial({ color: '#cfe8e4', gradientMap: cel, transparent: true, opacity: 0.35 }),
+  liquid: new THREE.MeshBasicMaterial({ color: '#8fe04e' }),
+  bubble: new THREE.MeshBasicMaterial({ color: '#d6ff9e' }),
+  bulb: new THREE.MeshBasicMaterial({ color: '#ffe9b0' }),
+  shade: toon('#2e6b4f'),
+  paper: toon('#e8e0c8', soft),
+  frame: toon('#4a3220'),
+  bottleAmber: toon('#c77b2e'),
+  bottleBlue: toon('#4e8fd0'),
+  bottleRed: toon('#c74e4e'),
+  crate: toon('#a5763f'),
 }

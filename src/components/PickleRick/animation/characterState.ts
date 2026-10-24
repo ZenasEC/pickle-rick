@@ -3,10 +3,13 @@
 import { EXPRESSIONS, clonePose, type ExpressionPose } from '../ExpressionController'
 import { createBlink, type BlinkState } from './blinkLayer'
 import { createCursor, type CursorState } from './cursorLayer'
+import { createDrag, type DragState } from './dragLayer'
+import { createAura, type AuraState } from './auraLayer'
 import { createEyeMicro, type EyeMicroState } from './eyeMicroLayer'
 import { createIdle, type IdleState } from './idleLayer'
 import { createLook, type LookState } from './lookLayer'
 import { createReactions, type ReactionState } from './reactionLayer'
+import { createLimbs, type LimbLayerState } from './limbLayer'
 
 export interface CharacterState {
   /** Layer 1, base idle. */
@@ -21,6 +24,12 @@ export interface CharacterState {
   cursor: CursorState
   blink: BlinkState
   eyeMicro: EyeMicroState
+  /** Joint angles of the four limbs, combined from the layers above. */
+  limbs: LimbLayerState
+  /** Drag and drop physics offset (position, velocity, squash, lean). */
+  drag: DragState
+  /** Cartoon glow: shell brightness, mood color, ground bursts. */
+  aura: AuraState
 }
 
 export function createCharacterState(): CharacterState {
@@ -32,5 +41,8 @@ export function createCharacterState(): CharacterState {
     cursor: createCursor(),
     blink: createBlink(),
     eyeMicro: createEyeMicro(),
+    limbs: createLimbs(),
+    drag: createDrag(),
+    aura: createAura(),
   }
 }

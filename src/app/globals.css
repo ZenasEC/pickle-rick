@@ -11,6 +11,86 @@ body {
 .scene {
   position: fixed;
   inset: 0;
+  touch-action: none; /* pointer drags move the pickle instead of scrolling (page never scrolls anyway) */
+}
+
+.scene canvas {
+  cursor: grab;
+}
+
+.scene canvas:active {
+  cursor: grabbing;
+}
+
+/* Expression picker: chunky cartoon buttons floating above the canvas bottom. */
+.expression-picker {
+  position: fixed;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap; /* phones: buttons flow onto two rows instead of overflowing */
+  justify-content: center;
+  max-width: 96vw;
+  gap: 8px;
+  padding: 8px;
+  background: rgba(20, 35, 30, 0.72);
+  border: 3px solid #0b1406;
+  border-radius: 16px;
+}
+
+.expression-button {
+  font-family: system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0b1406;
+  background: #fbf8ea;
+  border: 2px solid #0b1406;
+  border-radius: 10px;
+  padding: 6px 12px;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #0b1406; /* chunky press-down look */
+}
+
+.expression-button:hover {
+  background: #fff;
+}
+
+.expression-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #0b1406;
+}
+
+.expression-button.active {
+  background: #9ec34a;
+}
+
+.expression-button.mute {
+  margin-left: 8px; /* separate group: expressions on the left, sound on the right */
+  background: #bde9ec;
+}
+
+.expression-button:focus-visible {
+  outline: 3px solid #ffe9b0;
+  outline-offset: 2px;
+}
+
+/* Small phones: tighter bar so it never covers the character. */
+@media (max-width: 520px) {
+  .expression-picker {
+    gap: 6px;
+    padding: 6px;
+    bottom: 12px;
+  }
+
+  .expression-button {
+    font-size: 12px;
+    padding: 5px 9px;
+  }
+
+  .expression-button.mute {
+    margin-left: 0;
+  }
 }
 
 .fallback {

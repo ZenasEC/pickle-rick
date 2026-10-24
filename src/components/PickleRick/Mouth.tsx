@@ -7,7 +7,7 @@ import { useFrame } from '@react-three/fiber'
 import { Outlines } from '@react-three/drei'
 import * as THREE from 'three'
 import { materials, OUTLINE_COLOR } from './materials'
-import { surfaceZ } from './PickleBody'
+import { surfaceZ } from './bodyShape'
 import type { CharacterState } from './animation/characterState'
 
 /** Height of the mouth's top edge on the body when the corners are level. */

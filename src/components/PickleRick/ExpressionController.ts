@@ -32,6 +32,10 @@ export interface ExpressionPose {
   tremble: number
   /** 1 = normal blink frequency. */
   blinkRate: number
+  /** Arms: 0 = hanging, 1 = thrown up in the air. */
+  armLift: number
+  /** Elbows: 0 = loose, 1 = bent hard (fists in, hands on hips). */
+  armBend: number
 }
 
 export const EXPRESSIONS: Record<ExpressionName, ExpressionPose> = {
@@ -50,6 +54,7 @@ export const EXPRESSIONS: Record<ExpressionName, ExpressionPose> = {
     energy: 1,
     tremble: 0,
     blinkRate: 1,
+    armLift: 0, armBend: 0,
   },
   curious: {
     browLeft: { y: 0.07, rotZ: 0.2 },
@@ -65,6 +70,7 @@ export const EXPRESSIONS: Record<ExpressionName, ExpressionPose> = {
     energy: 1.1,
     tremble: 0,
     blinkRate: 0.7,
+    armLift: 0.1, armBend: 0.5,
   },
   surprised: {
     browLeft: { y: 0.1, rotZ: 0.4 },
@@ -80,6 +86,7 @@ export const EXPRESSIONS: Record<ExpressionName, ExpressionPose> = {
     energy: 1.3,
     tremble: 0,
     blinkRate: 0.3,
+    armLift: 0.7, armBend: 0.2,
   },
   angry: {
     browLeft: { y: -0.05, rotZ: -0.3 },
@@ -95,6 +102,7 @@ export const EXPRESSIONS: Record<ExpressionName, ExpressionPose> = {
     energy: 1.3,
     tremble: 1,
     blinkRate: 0.4,
+    armLift: 0.25, armBend: 1,
   },
   smug: {
     browLeft: { y: 0.06, rotZ: 0.15 },
@@ -110,6 +118,7 @@ export const EXPRESSIONS: Record<ExpressionName, ExpressionPose> = {
     energy: 0.7,
     tremble: 0,
     blinkRate: 0.6,
+    armLift: 0.05, armBend: 0.8,
   },
   excited: {
     browLeft: { y: 0.11, rotZ: 0.15 },
@@ -125,6 +134,7 @@ export const EXPRESSIONS: Record<ExpressionName, ExpressionPose> = {
     energy: 2,
     tremble: 0,
     blinkRate: 1.6,
+    armLift: 1, armBend: 0.3,
   },
 }
 
